@@ -66,7 +66,7 @@ const productSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true, // mongoose creates time fields (createdAt & updatedAt) automatically
+    timestamps: true,
   }
 );
 

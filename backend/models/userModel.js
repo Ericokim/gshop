@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = mongoose.Schema(
   {
@@ -18,13 +19,18 @@ const userSchema = mongoose.Schema(
     isAdmin: {
       type: Boolean,
       required: true,
-      default: true,
+      default: false,
     },
   },
   {
     timestamps: true, // mongoose creates time fields (createdAt & updatedAt) automatically
   }
 );
+
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  // method compare: It compares the plain text to the encrypted password
+  return await bcrypt.compare(enteredPassword, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 
