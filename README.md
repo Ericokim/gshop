@@ -7,7 +7,12 @@
 <hr />
 
 [![Build Status][build-badge]][build] [![Supports React and react][react-badge]][react] 
-[![version][version-badge]][package] [![MIT License][license-badge]][license]
+[![version][version-badge]][package]
+
+## Version
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde)
+[![GitHub Release](https://img.shields.io/github/release/tterb/PlayMusic.svg?style=flat)]()  
+
 
 
 ## Project setup
@@ -38,8 +43,7 @@ creation of this project.
 Thanks goes to these people: [Eric Munene][Ericokim] and [Brad Traversy][bradtraversy]
 
 ## LICENSE
-
-MIT
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
@@ -48,25 +52,17 @@ MIT
 [build]: https://github.com/Ericokim/gshop
 [bradtraversy]: https://github.com/bradtraversy
 [Ericokim]: https://github.com/Ericokim
-[coverage-badge]:
-  https://github.com/Ericokim/gshop
+[coverage-badge]: https://github.com/Ericokim/gshop
 [coverage]: https://codecov.io/
 [version-badge]: https://img.shields.io/npm/v/downshift.svg?style=flat-square
 [package]: https://www.npmjs.com/
 
-
 [license-badge]: https://img.shields.io/npm/l/downshift.svg?style=flat-square
-[license]: https://github.com/downshift-js/downshift/blob/master/LICENSE
+[license]: MIT
 
-[coc-badge]:
-  https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/downshift-js/downshift/blob/master/CODE_OF_CONDUCT.md
 [react-badge]:
   https://img.shields.io/badge/%E2%9A%9B%EF%B8%8F-react-00d8ff.svg?style=flat-square
 [react]: https://facebook.github.io/react/
 
-[spectrum-badge]: https://withspectrum.github.io/badge/badge.svg
-[spectrum]: https://spectrum.chat/downshift
-[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
-[all-contributors]: 2
+
 
