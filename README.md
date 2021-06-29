@@ -6,12 +6,13 @@
 
 <hr />
 
-[![Build Status][build-badge]][build] [![Supports React and react][react-badge]][react] 
-[![version][version-badge]][package]
+
 
 ## Version
 [![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde)
 [![GitHub Release](https://img.shields.io/github/release/tterb/PlayMusic.svg?style=flat)]()  
+[![Supports React and react][react-badge]][react] 
+![npm](https://img.shields.io/npm/v/react)
 
 
 
