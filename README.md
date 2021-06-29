@@ -2,7 +2,7 @@
 
 <p align="center" style="font-size: 1.2rem;">MERN Shopping Cart Application.</p>
 
-<hr />
+
 
 
 ## Version
