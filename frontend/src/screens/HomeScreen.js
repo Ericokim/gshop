@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
@@ -18,7 +18,7 @@ const HomeScreen = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Fragment>
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
@@ -33,7 +33,7 @@ const HomeScreen = () => {
           ))}
         </Row>
       )}
-    </>
+    </Fragment>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -32,7 +32,7 @@ const ProductScreen = ({ history, match }) => {
   };
 
   return (
-    <>
+    <Fragment>
       <Link to="/" className="btn btn-light my-3">
         Go Back
       </Link>
@@ -119,7 +119,7 @@ const ProductScreen = ({ history, match }) => {
           </Col>
         </Row>
       )}
-    </>
+    </Fragment>
   );
 };
 
