@@ -29,7 +29,7 @@ npm run build
 ```
 
 ## Inspiration
-I was heavily inspired by [Brad Traversy][bradtraversy]. I highly suggest watch his Udemy videos. It made a big impact on the
+I was heavily inspired by [Brad Traversy][bradtraversy]. I highly suggest watching his Udemy videos. It made a big impact on the
 creation of this project.
 
 ## Contributors
