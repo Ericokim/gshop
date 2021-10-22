@@ -6,17 +6,22 @@ const AlertDismissible = ({ title, message, open, onConfirm, onDismiss }) => {
     <Modal
       show={open}
       onHide={onDismiss}
+      backdrop="static"
+      // centered
+      keyboard={false}
       size="sm"
       aria-labelledby="example-modal-sizes-title-sm"
     >
-      <Modal.Header>{title}</Modal.Header>
+      <Modal.Header>
+        <b>{title}</b>
+      </Modal.Header>
       <Modal.Body>{message}</Modal.Body>
       <Modal.Footer>
-        <Button onClick={onConfirm} size="sm" variant="outline-success">
-          Confirm
-        </Button>
         <Button onClick={onDismiss} size="sm" variant="outline-danger">
           Cancel
+        </Button>
+        <Button onClick={onConfirm} size="sm" variant="outline-success">
+          Confirm
         </Button>
       </Modal.Footer>
     </Modal>

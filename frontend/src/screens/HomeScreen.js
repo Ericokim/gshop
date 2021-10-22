@@ -1,4 +1,4 @@
-import React, { Fragment,useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
@@ -22,16 +22,27 @@ const HomeScreen = () => {
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
-      ) : error ? (
-        <Message variant="danger">{error}</Message>
       ) : (
-        <Row>
-          {products.map((product) => (
-            <Col key={product._id} sm={12} md={6} lg={4} xl={3.2}>
-              <Product product={product} />
-            </Col>
-          ))}
-        </Row>
+        <Fragment>
+          {products.length === 0 ? (
+            <Message>
+              <Row>
+                <Col>No Data found</Col>
+                <Col className="text-right"></Col>
+              </Row>
+            </Message>
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <Row>
+              {products.map((product) => (
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3.2}>
+                  <Product product={product} />
+                </Col>
+              ))}
+            </Row>
+          )}
+        </Fragment>
       )}
     </Fragment>
   );
