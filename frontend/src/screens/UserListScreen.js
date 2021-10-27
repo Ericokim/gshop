@@ -70,16 +70,6 @@ const UserListScreen = ({ history }) => {
         </Col>
         <Col className="text-right">
           <Button
-            // variant="dark"
-            className="my-3"
-            size="sm"
-            // title="Create User"
-            // onClick={createProductHandler}
-          >
-            <i className="fas fa-plus mr-2"></i> Create User
-          </Button>
-
-          <Button
             variant="dark"
             className="my-3 ml-1"
             size="sm"

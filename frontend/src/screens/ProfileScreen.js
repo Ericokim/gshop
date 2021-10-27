@@ -8,31 +8,11 @@ import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
 
 const ProfileScreen = ({ history }) => {
-  const [show, setShow] = useState(false);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
-
-  const [currentOrder, setCurrentOrder] = useState({
-    id: "",
-    name: "",
-    email: "",
-    isAdmin: "",
-  });
-  const handleClose = () => setShow(false);
-
-  const handleShow = (user) => {
-    setShow(true);
-    setCurrentOrder({
-      id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-    });
-  };
 
   const dispatch = useDispatch();
 
@@ -134,9 +114,7 @@ const ProfileScreen = ({ history }) => {
               <Message>
                 <Row>
                   <Col>No orders found</Col>
-                  <Col className="text-right">
-                    
-                  </Col>
+                  <Col className="text-right"></Col>
                 </Row>
               </Message>
             ) : errorOrders ? (
