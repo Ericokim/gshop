@@ -11,30 +11,31 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { Refresh } from "../actions/productActions";
+import { updateProduct, Refresh } from "../actions/productActions";
 import { USER_UPDATE_RESET } from "../constants/userConstants";
 
 const ProductEditModal = ({ show, hide, currentProduct }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
+  const [imageName, setImageName] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
-  const [uploading, setUploading] = useState(false);
+  // const [uploading, setUploading] = useState(false);
 
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error } = productDetails;
 
-  const userUpdate = useSelector((state) => state.userUpdate);
+  const productUpdate = useSelector((state) => state.productUpdate);
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
-  } = userUpdate;
+  } = productUpdate;
 
   useEffect(() => {
     const { name, price, image, brand, category, description, countInStock } =
@@ -55,14 +56,23 @@ const ProductEditModal = ({ show, hide, currentProduct }) => {
     setName("");
     setPrice("");
     setImage("");
+    setImageName("");
     setBrand("");
     setCategory("");
     setCountInStock("");
     setDescription("");
   };
 
-  const uploadFileHandler = () => {
-    console.log("object");
+  // const uploadFileHandler = () => {
+  //   console.log("object");
+  // };
+
+
+  const onFileChange = (e) => {
+    if (e.target.files.length) {
+      setImage(URL.createObjectURL(e.target.files[0]));
+    }
+    setImageName(e.target.files[0].name);
   };
 
   const submitHandler = (e) => {
@@ -78,7 +88,7 @@ const ProductEditModal = ({ show, hide, currentProduct }) => {
       countInStock,
     };
 
-    dispatch(console.log(formData))
+    dispatch(updateProduct(formData))
       .then(() => dispatch(Refresh()))
       .finally(() => hide());
   };
@@ -106,32 +116,58 @@ const ProductEditModal = ({ show, hide, currentProduct }) => {
             <Form.Group controlId="image">
               <Form.Label>Image</Form.Label>
               <Row>
-                <Col md={6}>
+                <Col md={7}>
                   <Figure>
                     <Figure.Image
-                      width={181}
+                      width={251}
                       height={180}
                       alt="171x180"
                       src={image}
                       value={image}
                       onChange={(e) => setImage(e.target.value)}
                     />
+                    <Figure.Caption>
+                      <Form.Control
+                        type="text"
+                        disabled
+                        placeholder="Image url"
+                        value={
+                          imageName ? imageName : image ? image : imageName
+                        }
+                        onChange={() => setImage()}
+                      ></Form.Control>
+                    </Figure.Caption>
                   </Figure>
                 </Col>
-                <Col md={6}>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter image url"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                  ></Form.Control>
-                  <Form.File
-                    id="image-file"
-                    label="Choose File"
-                    custom
-                    onChange={uploadFileHandler}
-                  ></Form.File>
-                  {uploading && <Loader />}
+                <Col>
+                  {image ? (
+                    <span>
+                      <Button
+                        className="btn-file mr-2"
+                        variant="success"
+                        size="sm"
+                      >
+                        Change
+                        <input
+                          type="file"
+                          id="upload-button"
+                          onChange={onFileChange}
+                        />
+                      </Button>
+                    </span>
+                  ) : (
+                    <Button className="btn-file" variant="success" size="sm">
+                      {/* <i className="fas fa-plus mr-2"></i> */}
+                      Add Photo
+                      <input
+                        type="file"
+                        id="upload-button"
+                        onChange={onFileChange}
+                      />
+                    </Button>
+                  )}
+
+                  {/* {uploading && <Loader />} */}
                 </Col>
               </Row>
             </Form.Group>

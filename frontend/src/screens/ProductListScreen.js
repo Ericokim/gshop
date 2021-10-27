@@ -70,10 +70,9 @@ const ProductListScreen = ({ history, match }) => {
     }
   }, [dispatch, history, userInfo, successDelete]);
 
-  const createProductHandler = () => {
-    setShowAdd(true);
-    // console.log("create object");
-  };
+  // const createProductHandler = () => {
+  //   setShowAdd(true);
+  // };
 
   const deleteHandler = async (id, product) => {
     const confirmed = await getConfirmation({
@@ -102,7 +101,7 @@ const ProductListScreen = ({ history, match }) => {
             className="my-3"
             size="sm"
             // title="Create Product"
-            onClick={createProductHandler}
+            onClick={() => setShowAdd(true)}
           >
             <i className="fas fa-plus mr-2"></i> Create Product
           </Button>
@@ -118,7 +117,7 @@ const ProductListScreen = ({ history, match }) => {
           </Button>
         </Col>
       </Row>
-      {loadingDelete && <Loader />}
+      {/* {loadingDelete && <Loader />} */}
       {errorDelete && <Message variant="danger">{errorDelete}</Message>}
       {successDelete && (
         <Message variant="success">Product removed successfully</Message>
@@ -153,7 +152,9 @@ const ProductListScreen = ({ history, match }) => {
                   <th>PRICE</th>
                   <th>CATEGORY</th>
                   <th>BRAND</th>
-                  <th>CREATED DATE</th>
+                  <th>STOCK</th>
+                  <th>No.REVIEWS</th>
+                  <th>CREATED</th>
                   <th>ACTION</th>
                 </tr>
               </thead>
@@ -174,6 +175,8 @@ const ProductListScreen = ({ history, match }) => {
                     <td>${product.price}</td>
                     <td>{product.category}</td>
                     <td>{product.brand}</td>
+                    <td>{product.countInStock}</td>
+                    <td>{product.numReviews}</td>
                     <td>{product.createdAt.substring(0, 10)}</td>
                     <td>
                       <Button
